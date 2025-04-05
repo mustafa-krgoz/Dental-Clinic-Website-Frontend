@@ -1,0 +1,93 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.3rem 2rem;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+  }
+  
+  .logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #333;
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-left: auto;
+  }
+  
+  .nav-link {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: color 0.3s;
+  }
+  
+  .nav-link:hover {
+    color: #007bff;
+  }
+  
+  .dropdown {
+    position: relative;
+  }
+  
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 120%;
+    left: 0;
+    background-color: white;
+    padding: 0.5rem 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    border-radius: 6px;
+    z-index: 1000;
+    min-width: 180px;
+  }
+  
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+  
+  .dropdown-menu a {
+    display: block;
+    padding: 0.6rem 1rem;
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .dropdown-menu a:hover {
+    background-color: #f9f9f9;
+  }
+  
+  .navbar-randevu-btn {
+    margin-left: 2rem;
+    padding: 0.5rem 1.2rem;
+    background-color: #f4c542; /* Dolgu sarı */
+    color: white; /* Yazı rengi */
+    font-weight: 600;
+    border-radius: 8px;
+    border: none;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .navbar-randevu-btn:hover {
+    background-color: #e0b700;
+    color: white;
+  }
