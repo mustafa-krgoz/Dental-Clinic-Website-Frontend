@@ -1,0 +1,65 @@
+.why-choose-us {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+    padding: 80px 100px;
+    background-color: #fff;
+    flex-wrap: wrap;
+  }
+  
+  .images-staggered {
+    position: relative;
+    width: 360px;
+    height: 460px;
+  }
+  
+  .image {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    transition: all 0.3s ease;
+  }
+  
+  .top-img {
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
+  
+  .bottom-img {
+    bottom: 0px;   /* Daha aşağıda dursun */
+    left: 250px;      /* Hafif sağa kaydır */
+    z-index: 1;
+  }
+  
+  .text-content {
+    max-width: 600px;
+  }
+  
+  .subtitle {
+    font-size: 14px;
+    color: #f4c542;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+  }
+  
+  .highlighted-title {
+    font-size: 36px;
+    font-weight: 800;
+    color: #222;
+    margin-bottom: 20px;
+  }
+  
+  .highlighted-title .blue {
+    color: #254ecb;
+  }
+  
+  .text-content p {
+    font-size: 16px;
+    color: #444;
+    margin-bottom: 15px;
+  }

@@ -4,10 +4,14 @@
     align-items: center;
     padding: 80px 100px;
     background: linear-gradient(to right, #f0f9ff, #fffbe6);
+    flex-wrap: nowrap;
+    overflow: hidden;
   }
   
   .text-content {
-    max-width: 45%;
+    flex: 1;
+    min-width: 320px;
+    max-width: 50%;
   }
   
   .text-content h1 {
@@ -47,18 +51,23 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 600px;
-    height: 400px;
+    max-width: 600px;
+    min-width: 320px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 2; /* Oranı korumak için güzel bir seçenek */
   }
   
   .hero-carousel img {
     width: 100%;
-    height: 100%;
+    height: auto;
+    max-height: 400px; /* Maksimum yüksekliği korur */
     object-fit: cover;
     border-radius: 16px;
     box-shadow: 0 4px 20px #254ecb;
   }
   
+  /* OK Butonları */
   .arrow {
     position: absolute;
     top: 50%;
@@ -85,8 +94,31 @@
     right: -40px;
   }
   
-  @keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0px); }
+  /* ✅ Responsive düzenleme */
+  @media (max-width: 992px) {
+    .hero-section {
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+  
+    .text-content {
+      max-width: 100%;
+      text-align: center;
+    }
+  
+    .hero-carousel {
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+      margin-top: 30px;
+    }
+  
+    .arrow.left {
+      left: 10px;
+    }
+  
+    .arrow.right {
+      right: 10px;
+    }
   }
