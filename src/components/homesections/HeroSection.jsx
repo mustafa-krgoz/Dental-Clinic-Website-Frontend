@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './HeroSection.css';
+import '../../styles/home/HeroSection.css';
 import toothImg from '../../assets/images/tooth.png';
 import clinicImg from '../../assets/images/clinic.png';
 import whiteImg from '../../assets/images/white.png';

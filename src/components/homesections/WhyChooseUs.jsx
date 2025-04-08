@@ -1,5 +1,5 @@
 import React from 'react';
-import './WhyChooseUs.css';
+import '../../styles/home/WhyChooseUs.css';
 import clinicImg from '../../assets/images/clinic.png';
 import whiteImg from '../../assets/images/white.png';
 

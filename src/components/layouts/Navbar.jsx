@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import './Navbar.css';
+import '../../styles/layout/Navbar.css';
 import { FaTooth, FaHome, FaUserMd, FaRegQuestionCircle, FaPhone } from 'react-icons/fa';
 import { MdOutlineMedicalServices, MdPeople } from 'react-icons/md';
 import { BsChatDots } from 'react-icons/bs';

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './TreatmentSection.css';
+import '../../styles/home/TreatmentSection.css';
 import {
   FaTooth,
   FaTeethOpen,
