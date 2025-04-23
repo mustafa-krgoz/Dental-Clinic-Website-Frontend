@@ -1,38 +1,100 @@
+// src/pages/AboutPage.jsx
 import React from 'react';
+import '../styles/about/AboutPage.css';
 import Navbar from '../components/layouts/Navbar';
 import Footer from '../components/layouts/Footer';
-import '../styles/about/AboutPage.css';
-import aboutImg1 from '../assets/images/white.png';
-import aboutImg2 from '../assets/images/tooth.png';
 
-function AboutPage() {
+const AboutPage = () => {
   return (
-    <>
+    <div className="about-page">
       <Navbar />
+      
       <section className="about-hero">
-        <h1>Hakkımızda</h1>
-        <p>DentCare olarak ağız ve diş sağlığınızı önemsiyoruz. Uzman hekim kadromuz ve modern teknolojimizle en iyi hizmeti sunmayı hedefliyoruz.</p>
-      </section>
-
-      <section className="about-content">
-        <div className="about-text">
-          <h2>Kaliteli Tedavi ve Güler Yüz</h2>
-          <p>
-            Kliniğimiz, son teknoloji cihazlarla donatılmıştır ve her biri alanında uzman hekimlerden oluşan kadromuzla hizmet vermektedir. Hijyen, güvenilirlik ve hasta memnuniyeti bizim için en önemli önceliklerdendir.
-          </p>
-          <p>
-            Tedavi süreciniz boyunca sizinle birlikte planlama yapar, her adımı açıklayarak ilerleriz. Size en uygun tedavi planını belirleyip, konforlu bir ortamda uygulamayı hedefleriz.
-          </p>
-        </div>
-
-        <div className="about-images">
-          <img src={aboutImg1} alt="Kliniğimiz" />
-          <img src={aboutImg2} alt="Tedavi anı" />
+        <div className="container">
+          <h1>DentCare Hakkında</h1>
+          <p>Sağlıklı gülüşler için 20 yıllık deneyim</p>
         </div>
       </section>
+
+      <section className="about-mission">
+        <div className="container">
+          <div className="mission-content">
+            <h2>Misyonumuz</h2>
+            <p>
+              DentCare olarak ağız ve diş sağlığınızı önemsiyoruz. Uzman hekim kadromuz ve modern 
+              teknolojimizle en iyi hizmeti sunmayı hedefliyoruz. Her hastamıza özel tedavi planları 
+              oluşturarak bireysel ihtiyaçları karşılıyoruz.
+            </p>
+          </div>
+          <div className="mission-image"></div>
+        </div>
+      </section>
+
+      <section className="about-values">
+        <div className="container">
+          <h2>Değerlerimiz</h2>
+          <div className="values-grid">
+            <div className="value-card">
+              <div className="value-icon">🧼</div>
+              <h3>Hijyen</h3>
+              <p>En üst seviyede sterilizasyon ve hijyen standartları</p>
+            </div>
+            <div className="value-card">
+              <div className="value-icon">💎</div>
+              <h3>Kalite</h3>
+              <p>Son teknoloji ekipmanlar ve kaliteli malzemeler</p>
+            </div>
+            <div className="value-card">
+              <div className="value-icon">👨‍⚕️</div>
+              <h3>Uzmanlık</h3>
+              <p>Alanında uzman deneyimli diş hekimleri</p>
+            </div>
+            <div className="value-card">
+              <div className="value-icon">❤️</div>
+              <h3>Hasta Memnuniyeti</h3>
+              <p>Hastalarımızın konforu ve memnuniyeti önceliğimiz</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="about-team">
+        <div className="container">
+          <h2>Uzman Ekibimiz</h2>
+          <div className="team-grid">
+            <div className="team-card">
+              <div className="doctor-image doc1"></div>
+              <h3>Dr. Ahmet Yılmaz</h3>
+              <p>Ortodonti Uzmanı</p>
+              <span>15 yıllık deneyim</span>
+            </div>
+            <div className="team-card">
+              <div className="doctor-image doc2"></div>
+              <h3>Dr. Ayşe Demir</h3>
+              <p>Pedodonti Uzmanı</p>
+              <span>10 yıllık deneyim</span>
+            </div>
+            <div className="team-card">
+              <div className="doctor-image doc3"></div>
+              <h3>Dr. Mehmet Kaya</h3>
+              <p>İmplantoloji Uzmanı</p>
+              <span>12 yıllık deneyim</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="about-cta">
+        <div className="container">
+          <h2>Randevunuzu Hemen Alın</h2>
+          <p>Sağlıklı bir gülüş için ilk adımı atın</p>
+          <button className="cta-button">Online Randevu</button>
+        </div>
+      </section>
+
       <Footer />
-    </>
+    </div>
   );
-}
+};
 
 export default AboutPage;
