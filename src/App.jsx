@@ -7,6 +7,7 @@ import AboutPage from './pages/AboutPage';
 import DoctorsPage from './pages/DoctorsPage';
 import BlogPage from './pages/BlogPage';
 import FaqSectionPage from './pages/FaqSectionPage';
+import ContactPage from './pages/ContactPage';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/doktorlar" element={<DoctorsPage />} />
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/sss" element={<FaqSectionPage />} />
+        <Route path="/iletisim" element={<ContactPage />} />
       </Routes>
     </Router>
   );
