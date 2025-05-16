@@ -2,37 +2,37 @@ import React, { useState } from 'react';
 import Navbar from '../components/layouts/Navbar';
 import Footer from '../components/layouts/Footer';
 import '../styles/appointment/AppointmentPage.css';
-import { FiArrowRight, FiArrowLeft, FiCheck } from 'react-icons/fi';
+import { FiArrowRight, FiArrowLeft, FiCheck, FiCalendar, FiClock } from 'react-icons/fi';
 
 const treatments = [
   {
     name: "Muayene",
-    icon: "🩺",
+    icon: "/icons/stethoscope.svg",
     description: "Genel diş muayenesi ve kontrol"
   },
   {
     name: "Ağız ve Çene Cerrahisi",
-    icon: "⚕️",
+    icon: "/icons/surgery.svg",
     description: "20'lik diş çekimi ve cerrahi işlemler"
   },
   {
     name: "Diş Eti (Periodontoloji)",
-    icon: "🦷",
+    icon: "/icons/tooth.svg",
     description: "Diş eti hastalıkları tedavisi"
   },
   {
     name: "Pedodonti (Çocuk Diş Hekimi)",
-    icon: "👶",
+    icon: "/icons/baby.svg",
     description: "Çocuklara özel diş tedavileri"
   },
   {
     name: "Ortodonti",
-    icon: "😁",
+    icon: "/icons/braces.svg",
     description: "Diş teli ve çene düzensizlikleri"
   },
   {
     name: "Estetik Diş Hekimliği",
-    icon: "✨",
+    icon: "/icons/esthetic.svg",
     description: "Gülüş tasarımı ve beyazlatma"
   }
 ];
@@ -43,21 +43,33 @@ const doctors = [
     name: "Dr. Ahmet Yılmaz",
     specialty: "Ortodonti",
     image: "https://randomuser.me/api/portraits/men/32.jpg",
-    available: ["Pazartesi", "Çarşamba", "Cuma"]
+    schedule: {
+      "2025-05-16": ["10:00", "11:30", "14:00", "15:30"],
+      "2025-05-19": ["09:00", "10:30", "13:00", "14:30"],
+      "2025-05-20": ["11:00", "13:30", "15:00", "16:30"]
+    }
   },
   {
     id: 2,
     name: "Dr. Ayşe Demir",
     specialty: "Pedodonti",
     image: "https://randomuser.me/api/portraits/women/44.jpg",
-    available: ["Salı", "Perşembe", "Cumartesi"]
+    schedule: {
+      "2025-05-17": ["09:30", "11:00", "14:30", "16:00"],
+      "2025-05-19": ["10:00", "12:00", "15:00"],
+      "2025-05-21": ["09:00", "11:30", "14:00"]
+    }
   },
   {
     id: 3,
     name: "Dr. Mehmet Kaya",
     specialty: "Ağız ve Çene Cerrahisi",
     image: "https://randomuser.me/api/portraits/men/75.jpg",
-    available: ["Pazartesi", "Salı", "Perşembe"]
+    schedule: {
+      "2025-05-16": ["09:00", "11:00", "14:00"],
+      "2025-05-18": ["10:30", "13:00", "15:30"],
+      "2025-05-20": ["09:30", "11:30", "14:30"]
+    }
   }
 ];
 
@@ -65,11 +77,12 @@ const AppointmentPage = () => {
   const [step, setStep] = useState(1);
   const [selectedTreatment, setSelectedTreatment] = useState(null);
   const [selectedDoctor, setSelectedDoctor] = useState(null);
+  const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedTime, setSelectedTime] = useState(null);
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
     email: '',
-    date: '',
     note: ''
   });
 
@@ -80,6 +93,13 @@ const AppointmentPage = () => {
 
   const handleSelectDoctor = (doctor) => {
     setSelectedDoctor(doctor);
+    setSelectedDate(null);
+    setSelectedTime(null);
+  };
+
+  const handleSelectDate = (date) => {
+    setSelectedDate(date);
+    setSelectedTime(null);
   };
 
   const handleInputChange = (e) => {
@@ -100,8 +120,76 @@ const AppointmentPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Burada randevu gönderme işlemi yapılacak
+    const appointmentData = {
+      treatment: selectedTreatment.name,
+      doctor: selectedDoctor.name,
+      date: selectedDate,
+      time: selectedTime,
+      ...formData
+    };
+    console.log('Randevu bilgileri:', appointmentData);
     alert('Randevunuz başarıyla oluşturuldu!');
+  };
+
+  const Calendar = ({ doctor }) => {
+    const availableDates = Object.keys(doctor.schedule);
+    
+    return (
+      <div className="calendar-container">
+        <div className="calendar-header">
+          <FiCalendar className="calendar-icon" />
+          <h4>Uygun Tarihler</h4>
+        </div>
+        <div className="date-grid">
+          {availableDates.map(date => {
+            const dateObj = new Date(date);
+            const dayName = dateObj.toLocaleDateString('tr-TR', { weekday: 'long' });
+            const formattedDate = dateObj.toLocaleDateString('tr-TR', { 
+              day: 'numeric', 
+              month: 'long',
+              year: 'numeric'
+            });
+            
+            return (
+              <div 
+                key={date}
+                className={`date-card ${selectedDate === date ? 'selected' : ''}`}
+                onClick={() => handleSelectDate(date)}
+              >
+                <div className="date-day">{dayName}</div>
+                <div className="date-number">{formattedDate}</div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    );
+  };
+
+  const TimeSlotPicker = ({ doctor }) => {
+    if (!selectedDate) return null;
+    
+    const availableTimes = doctor.schedule[selectedDate] || [];
+    
+    return (
+      <div className="time-slot-container">
+        <div className="time-slot-header">
+          <FiClock className="clock-icon" />
+          <h4>Uygun Saatler</h4>
+        </div>
+        <div className="time-grid">
+          {availableTimes.map(time => (
+            <button
+              key={time}
+              className={`time-slot ${selectedTime === time ? 'selected' : ''}`}
+              onClick={() => setSelectedTime(time)}
+            >
+              {time}
+            </button>
+          ))}
+        </div>
+      </div>
+    );
   };
 
   return (
@@ -121,7 +209,7 @@ const AppointmentPage = () => {
               <div className={`step-connector ${step >= 2 ? 'active' : ''}`}></div>
               <div className={`step ${step >= 2 ? 'active' : ''}`}>
                 <div className="step-circle">{step > 2 ? <FiCheck /> : 2}</div>
-                <div className="step-label">Doktor Seçimi</div>
+                <div className="step-label">Doktor & Tarih</div>
               </div>
               <div className={`step-connector ${step >= 3 ? 'active' : ''}`}></div>
               <div className={`step ${step >= 3 ? 'active' : ''}`}>
@@ -144,7 +232,9 @@ const AppointmentPage = () => {
                       className={`treatment-card ${selectedTreatment?.name === treatment.name ? 'selected' : ''}`}
                       onClick={() => handleSelectTreatment(treatment)}
                     >
-                      <div className="treatment-icon">{treatment.icon}</div>
+                      <div className="treatment-icon">
+                        <img src={treatment.icon} alt={treatment.name} />
+                      </div>
                       <h3>{treatment.name}</h3>
                       <p>{treatment.description}</p>
                     </div>
@@ -155,26 +245,32 @@ const AppointmentPage = () => {
 
             {step === 2 && (
               <div className="doctor-step">
-                <h2>Tercih Ettiğiniz Doktoru Seçin</h2>
+                <h2>Doktor ve Randevu Saati Seçimi</h2>
                 <p>{selectedTreatment.name} tedavisi için uygun doktorlarımız</p>
                 
-                <div className="doctor-options">
-                  {doctors.filter(d => d.specialty === selectedTreatment.name || selectedTreatment.name === "Muayene").map(doctor => (
-                    <div 
-                      key={doctor.id}
-                      className={`doctor-card ${selectedDoctor?.id === doctor.id ? 'selected' : ''}`}
-                      onClick={() => handleSelectDoctor(doctor)}
-                    >
-                      <img src={doctor.image} alt={doctor.name} className="doctor-image" />
-                      <div className="doctor-info">
-                        <h3>{doctor.name}</h3>
-                        <p className="specialty">{doctor.specialty}</p>
-                        <p className="availability">
-                          <strong>Uygun olduğu günler:</strong> {doctor.available.join(', ')}
-                        </p>
+                <div className="doctor-selection-container">
+                  <div className="doctor-list">
+                    {doctors.filter(d => d.specialty === selectedTreatment.name || selectedTreatment.name === "Muayene").map(doctor => (
+                      <div 
+                        key={doctor.id}
+                        className={`doctor-card ${selectedDoctor?.id === doctor.id ? 'selected' : ''}`}
+                        onClick={() => handleSelectDoctor(doctor)}
+                      >
+                        <img src={doctor.image} alt={doctor.name} className="doctor-image" />
+                        <div className="doctor-info">
+                          <h3>{doctor.name}</h3>
+                          <p className="specialty">{doctor.specialty}</p>
+                        </div>
                       </div>
+                    ))}
+                  </div>
+                  
+                  {selectedDoctor && (
+                    <div className="schedule-selection">
+                      <Calendar doctor={selectedDoctor} />
+                      <TimeSlotPicker doctor={selectedDoctor} />
                     </div>
-                  ))}
+                  )}
                 </div>
               </div>
             )}
@@ -192,6 +288,21 @@ const AppointmentPage = () => {
                   <div className="summary-item">
                     <span>Doktor:</span>
                     <strong>{selectedDoctor?.name || 'Belirtilmedi'}</strong>
+                  </div>
+                  <div className="summary-item">
+                    <span>Tarih:</span>
+                    <strong>
+                      {selectedDate && new Date(selectedDate).toLocaleDateString('tr-TR', { 
+                        weekday: 'long', 
+                        day: 'numeric', 
+                        month: 'long',
+                        year: 'numeric'
+                      })}
+                    </strong>
+                  </div>
+                  <div className="summary-item">
+                    <span>Saat:</span>
+                    <strong>{selectedTime || 'Belirtilmedi'}</strong>
                   </div>
                 </div>
                 
@@ -232,18 +343,6 @@ const AppointmentPage = () => {
                 </div>
                 
                 <div className="form-group">
-                  <label htmlFor="date">Tercih Ettiğiniz Tarih</label>
-                  <input 
-                    type="date" 
-                    id="date" 
-                    name="date" 
-                    value={formData.date}
-                    onChange={handleInputChange}
-                    required 
-                  />
-                </div>
-                
-                <div className="form-group">
                   <label htmlFor="note">Ek Not (Opsiyonel)</label>
                   <textarea 
                     id="note" 
@@ -251,6 +350,7 @@ const AppointmentPage = () => {
                     value={formData.note}
                     onChange={handleInputChange}
                     rows="3"
+                    placeholder="Randevu ile ilgili özel notlarınız..."
                   />
                 </div>
               </form>
@@ -268,7 +368,10 @@ const AppointmentPage = () => {
               <button 
                 className="next-btn" 
                 onClick={handleNext}
-                disabled={(step === 2 && !selectedDoctor) || (step === 1 && !selectedTreatment)}
+                disabled={
+                  (step === 1 && !selectedTreatment) || 
+                  (step === 2 && (!selectedDoctor || !selectedDate || !selectedTime))
+                }
               >
                 İleri <FiArrowRight />
               </button>
