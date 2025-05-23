@@ -10,6 +10,7 @@ import FaqSectionPage from './pages/FaqSectionPage';
 import ContactPage from './pages/ContactPage';
 import AppointmentPage from './pages/AppointmentPage';
 import CariesDetectionPage from './pages/CariesDetectionPage';
+import ImplantPage from './pages/treatments/ImplantPage';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/implant" element={<ImplantPage />} />
         <Route path="/ai" element={<CariesDetectionPage />} />
         <Route path="/doktorlar" element={<DoctorsPage />} />
         <Route path="/blog" element={<BlogPage />} />
