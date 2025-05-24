@@ -13,6 +13,8 @@ import CariesDetectionPage from './pages/CariesDetectionPage';
 import ImplantPage from './pages/treatments/ImplantPage';
 import PedodontiPage from './pages/treatments/PedodontiPage';
 import TeethWhiteningPage from './pages/treatments/TeethWhiteningPage';
+import SedationPage from './pages/treatments/SedationPage';
+import OrthodonticsPage from './pages/treatments/OrthodonticsPage';
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
         <Route path="/implant" element={<ImplantPage />} />
         <Route path="/cocuk-dis" element={<PedodontiPage />} />
         <Route path="/beyazlatma" element={<TeethWhiteningPage />} />
+        <Route path="/sedasyon" element={<SedationPage />} />
+        <Route path="/ortodonti" element={<OrthodonticsPage />} />
         <Route path="/ai" element={<CariesDetectionPage />} />
         <Route path="/doktorlar" element={<DoctorsPage />} />
         <Route path="/blog" element={<BlogPage />} />
@@ -32,6 +36,6 @@ function App() {
       </Routes>
     </Router>
   );
-}
+}  
 
 export default App;

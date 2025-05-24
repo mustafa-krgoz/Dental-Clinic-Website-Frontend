@@ -1,0 +1,102 @@
+.orthodontics-page {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f9fafb;
+    color: #475569;
+    line-height: 1.7;
+  }
+  
+  .orthodontics-hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 100px 100px;
+    background: linear-gradient(135deg, #e0f0ff 0%, #cfe8fc 100%);
+    border-radius: 0 0 30px 30px;
+    flex-wrap: wrap;
+  }
+  
+  .hero-text {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .hero-text h1 {
+    font-size: 2.8rem;
+    color: #2b6cb0;
+    margin-bottom: 15px;
+  }
+  
+  .hero-text p {
+    font-size: 1.2rem;
+    color: #475569;
+  }
+  
+  .hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .hero-image img {
+    width: 800px;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  .orthodontics-info {
+    padding: 60px 20px;
+    background-color: white;
+  }
+  
+  .orthodontics-info .container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .orthodontics-info h2 {
+    color: #2b6cb0;
+    margin-bottom: 15px;
+    font-size: 1.6rem;
+  }
+  
+  .orthodontics-info p,
+  .orthodontics-info ul {
+    color: #475569;
+    margin-bottom: 20px;
+    font-size: 1rem;
+  }
+  
+  .orthodontics-info ul {
+    padding-left: 20px;
+  }
+  
+  .orthodontics-info li {
+    margin-bottom: 10px;
+  }
+  
+  /* Responsive Tasarım */
+  @media (max-width: 768px) {
+    .orthodontics-hero {
+      flex-direction: column;
+      text-align: center;
+      padding: 40px 20px;
+    }
+  
+    .hero-text h1 {
+      font-size: 2rem;
+    }
+  
+    .hero-text p {
+      font-size: 1rem;
+    }
+  
+    .hero-image img {
+      width: 100%;
+    }
+  
+    .orthodontics-info {
+      padding: 40px 10px;
+    }
+  }
