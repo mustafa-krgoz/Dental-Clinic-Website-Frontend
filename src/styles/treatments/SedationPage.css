@@ -15,34 +15,31 @@
     flex-wrap: wrap;
   }
   
-  .hero-text {
+  .sedation-hero-text {
     flex: 1;
     padding: 20px;
   }
   
-  .hero-text h1 {
+  .sedation-hero-text h1 {
     font-size: 2.8rem;
     color: #2b6cb0;
     margin-bottom: 15px;
   }
   
-  .hero-text p {
+  .sedation-hero-text p {
     font-size: 1.2rem;
     color: #475569;
   }
   
-  .hero-image {
+  .sedation-hero-image {
     flex: 1;
-    display: flex;
-    justify-content: center;
-    padding: 20px;
+    text-align: center;
   }
   
-  .hero-image img {
-    width: 800px;
+  .sedation-hero-image img {
+    max-width: 100%;
     height: auto;
     border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   }
   
   .sedation-info {
@@ -84,15 +81,15 @@
       padding: 40px 20px;
     }
   
-    .hero-text h1 {
+    .sedation-hero-text h1 {
       font-size: 2rem;
     }
   
-    .hero-text p {
+    .sedation-hero-text p {
       font-size: 1rem;
     }
   
-    .hero-image img {
+    .sedation-hero-image img {
       width: 100%;
     }
   

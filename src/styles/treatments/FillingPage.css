@@ -1,0 +1,103 @@
+.filling-page {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f9fafb;
+    color: #2d3748;
+    padding-bottom: 60px;
+  }
+  
+  .filling-hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 100px 100px;
+    background: linear-gradient(135deg, #e0f0ff 0%, #cfe8fc 100%);
+    border-radius: 0 0 30px 30px;
+    flex-wrap: wrap;
+  }
+  
+  .filling-hero-text {
+    max-width: 620px;
+    flex: 1;
+  }
+  
+  .filling-hero-text h1 {
+    font-size: 2.6rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: #2b6cb0;
+  }
+  
+  .filling-hero-text p {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #475569;
+  }
+  
+  .filling-hero-image {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .filling-hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+  }
+  
+  .filling-info.container {
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 0 20px;
+  }
+  
+  .filling-info h2 {
+    font-size: 1.8rem;
+    color: #2b6cb0;
+    margin-top: 40px;
+    margin-bottom: 15px;
+    font-weight: 700;
+  }
+  
+  .filling-info p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #4a5568;
+  }
+  
+  .filling-info ul {
+    padding-left: 20px;
+    margin-top: 10px;
+    color: #4a5568;
+  }
+  
+  .filling-info li {
+    margin-bottom: 8px;
+    font-size: 1rem;
+    color: #2d3748;
+    list-style-type: disc;
+  }
+  
+  /* Responsive Tasarım */
+  @media (max-width: 768px) {
+    .filling-hero {
+      flex-direction: column;
+      text-align: center;
+      padding: 40px 20px;
+    }
+  
+    .filling-hero-text h1 {
+      font-size: 2rem;
+    }
+  
+    .filling-hero-text p {
+      font-size: 1rem;
+    }
+  
+    .filling-hero-image img {
+      width: 100%;
+    }
+  
+    .filling-info.container {
+      padding: 0 10px;
+    }
+  }

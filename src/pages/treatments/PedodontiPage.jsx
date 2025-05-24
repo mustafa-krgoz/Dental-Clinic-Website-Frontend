@@ -10,11 +10,11 @@ const PedodontiPage = () => {
       <Navbar />
       <div className="pedodonti-page">
         <section className="pedodonti-hero">
-          <div className="hero-text">
+          <div className="pedodonti-hero-text">
             <h1>Çocuk Diş Hekimliği (Pedodonti)</h1>
             <p>Çocuklara özel hassasiyetle tasarlanmış tedavilerle sağlıklı gülüşler kazandırıyoruz.</p>
           </div>
-          <div className="hero-image">
+          <div className="pedodonti-hero-image">
             <img src={kidToothImage} alt="Çocuk Diş Tedavisi" />
           </div>
         </section>

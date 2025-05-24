@@ -11,11 +11,11 @@ const OrthodonticsPage = () => {
       <Navbar />
       <div className="orthodontics-page">
         <section className="orthodontics-hero">
-          <div className="hero-text">
+          <div className="orthodontics-hero-text">
             <h1>Ortodonti Tedavisi</h1>
             <p>Daha düzgün, estetik ve sağlıklı bir gülümseme için modern ortodontik çözümler.</p>
           </div>
-          <div className="hero-image">
+          <div className="orthodontics-hero-image">
             <img src={orthodonticsImage} alt="Ortodonti Tedavisi" />
           </div>
         </section>

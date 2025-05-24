@@ -11,18 +11,18 @@ const TeethWhiteningPage = () => {
       <Navbar />
       <div className="teeth-whitening-page">
         {/* Hero Section */}
-        <section className="whitening-hero">
-          <div className="hero-text">
+        <section className="teeth-whitening-hero">
+          <div className="teeth-whitening-hero-text">
             <h1>Diş Beyazlatma</h1>
             <p>Daha beyaz, parlak ve estetik bir gülümseme için modern çözümler.</p>
           </div>
-          <div className="hero-image">
+          <div className="teeth-whitening-hero-image">
             <img src={whiteningImage} alt="Diş Beyazlatma Görseli" />
           </div>
         </section>
 
         {/* Description Section */}
-        <section className="whitening-info">
+        <section className="teeth-whitening-info">
           <div className="container">
             <h2>Diş Beyazlatma Nedir?</h2>
             <p>

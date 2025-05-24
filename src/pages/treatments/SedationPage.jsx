@@ -11,11 +11,11 @@ const SedationPage = () => {
       <Navbar />
       <div className="sedation-page">
         <section className="sedation-hero">
-          <div className="hero-text">
+          <div className="sedation-hero-text">
             <h1>Sedasyon ile Diş Tedavisi</h1>
             <p>Rahat ve endişesiz diş tedavileri için modern yöntemler.</p>
           </div>
-          <div className="hero-image">
+          <div className="sedation-hero-image">
             <img src={sedationImage} alt="Sedasyon ile Diş Tedavisi" />
           </div>
         </section>

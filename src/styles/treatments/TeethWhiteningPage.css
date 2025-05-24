@@ -1,105 +1,103 @@
 .teeth-whitening-page {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f9fafb;
-    color: #2d3748;
-    line-height: 1.7;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f9fafb;
+  color: #2d3748;
+  line-height: 1.7;
+}
+
+.teeth-whitening-hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 100px 100px;
+  background: linear-gradient(135deg, #e0f0ff 0%, #cfe8fc 100%);
+  border-radius: 0 0 30px 30px;
+  flex-wrap: wrap;
+}
+
+.teeth-whitening-hero-text {
+  max-width: 620px;
+  flex: 1;
+}
+
+.teeth-whitening-hero-text h1 {
+  font-size: 2.6rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: #2b6cb0;
+}
+
+.teeth-whitening-hero-text p {
+  font-size: 1.2rem;
+  color: #475569;
+}
+
+.teeth-whitening-hero-image {
+  flex: 1;
+  text-align: center;
+}
+
+.teeth-whitening-hero-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 20px;
+}
+
+.teeth-whitening-info {
+  padding: 100px 100px;
+  background-color: white;
+}
+
+.teeth-whitening-info .container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.teeth-whitening-info h2 {
+  font-size: 1.8rem;
+  color: #2b6cb0;
+  margin-top: 40px;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.teeth-whitening-info p {
+  color: #4a5568;
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+
+.teeth-whitening-info ul {
+  margin-left: 20px;
+  margin-bottom: 30px;
+  color: #4a5568;
+}
+
+.teeth-whitening-info li {
+  margin-bottom: 10px;
+}
+
+/* Responsive Tasarım */
+@media (max-width: 768px) {
+  .teeth-whitening-hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 20px;
   }
-  
-  .whitening-hero {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 100px 100px;
-    background: linear-gradient(135deg, #e0f0ff 0%, #cfe8fc 100%);
-    border-radius: 0 0 30px 30px;
-    flex-wrap: wrap;
+
+  .teeth-whitening-hero-text h1 {
+    font-size: 2rem;
   }
-  
-  .hero-text {
-    max-width: 620px;
-    flex: 1;
-  }
-  
-  .hero-text h1 {
-    font-size: 2.6rem;
-    font-weight: 800;
-    margin-bottom: 20px;
-  }
-  
-  .hero-text p {
-    font-size: 1.2rem;
-    color: #475569;
-  }
-  
-  .hero-image {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-  }
-  
-  .hero-image img {
-    width: 500px;
-    height: auto;
-    border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  }
-  
-  .whitening-info {
-    padding: 100px 100px;
-    background-color: white;
-  }
-  
-  .whitening-info .container {
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-  
-  .whitening-info h2 {
-    font-size: 1.8rem;
-    color: #2b6cb0;
-    margin-top: 40px;
-    margin-bottom: 15px;
-    font-weight: 700;
-  }
-  
-  .whitening-info p {
-    color: #4a5568;
-    margin-bottom: 20px;
+
+  .teeth-whitening-hero-text p {
     font-size: 1rem;
   }
-  
-  .whitening-info ul {
-    margin-left: 20px;
-    margin-bottom: 30px;
-    color: #4a5568;
+
+  .teeth-whitening-hero-image img {
+    width: 100%;
   }
-  
-  .whitening-info li {
-    margin-bottom: 10px;
+
+  .teeth-whitening-info {
+    padding: 40px 10px;
   }
-  
-  /* Responsive Tasarım */
-  @media (max-width: 768px) {
-    .whitening-hero {
-      flex-direction: column;
-      text-align: center;
-      padding: 40px 20px;
-    }
-  
-    .hero-text h1 {
-      font-size: 2rem;
-    }
-  
-    .hero-text p {
-      font-size: 1rem;
-    }
-  
-    .hero-image img {
-      width: 100%;
-    }
-  
-    .whitening-info {
-      padding: 40px 10px;
-    }
-  }
+}

@@ -1,0 +1,67 @@
+.tomography-page {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #1a202c;
+    background-color: #f7fafc;
+  }
+  
+  .tomography-hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, #e0f2ff 0%, #b3daff 100%);
+    padding: 60px 20px;
+    border-radius: 0 0 30px 30px;
+    flex-wrap: wrap;
+  }
+  
+  .tomography-hero-text {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .tomography-hero-text h1 {
+    font-size: 48px;
+    color: #2b6cb0;
+  }
+  
+  .tomography-hero-text p {
+    font-size: 20px;
+    margin-top: 10px;
+  }
+  
+  .tomography-hero-image {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .tomography-hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+  }
+  
+  .tomography-info {
+    padding: 60px 20px;
+  }
+  
+  .tomography-container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .tomography-info h2 {
+    font-size: 28px;
+    color: #2b6cb0;
+    margin-top: 40px;
+  }
+  
+  .tomography-info p,
+  .tomography-info li {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+  
+  .tomography-info ul {
+    list-style-type: disc;
+    padding-left: 20px;
+  }
