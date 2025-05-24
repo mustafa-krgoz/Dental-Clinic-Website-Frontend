@@ -11,6 +11,7 @@ import ContactPage from './pages/ContactPage';
 import AppointmentPage from './pages/AppointmentPage';
 import CariesDetectionPage from './pages/CariesDetectionPage';
 import ImplantPage from './pages/treatments/ImplantPage';
+import PedodontiPage from './pages/treatments/PedodontiPage';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/implant" element={<ImplantPage />} />
+        <Route path="/cocuk-dis" element={<PedodontiPage />} />
         <Route path="/ai" element={<CariesDetectionPage />} />
         <Route path="/doktorlar" element={<DoctorsPage />} />
         <Route path="/blog" element={<BlogPage />} />
