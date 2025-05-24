@@ -9,12 +9,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: linear-gradient(135deg, #2b6cb0 0%, #3182ce 100%);
-    padding: 100px 100px; /* sağ ve sol padding artırıldı */
+    padding: 100px 100px;
+    background: linear-gradient(135deg, #e0f0ff 0%, #cfe8fc 100%);
     border-radius: 0 0 30px 30px;
-    color: #ffffff;
     flex-wrap: wrap;
-    gap: 40px; /* boşluğu azaltmak yerine gap kontrollü eklendi */
   }
   
   .hero-text {
