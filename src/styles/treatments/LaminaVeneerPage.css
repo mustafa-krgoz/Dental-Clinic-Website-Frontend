@@ -1,0 +1,67 @@
+.lamina-page {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #1a202c;
+    background-color: #f7fafc;
+  }
+  
+  .lamina-hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, #e0f2ff 0%, #b3daff 100%);
+    padding: 60px 20px;
+    border-radius: 0 0 30px 30px;
+    flex-wrap: wrap;
+  }
+  
+  .lamina-hero-text {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .lamina-hero-text h1 {
+    font-size: 48px;
+    color: #2b6cb0;
+  }
+  
+  .lamina-hero-text p {
+    font-size: 20px;
+    margin-top: 10px;
+  }
+  
+  .lamina-hero-image {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .lamina-hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+  }
+  
+  .lamina-info {
+    padding: 60px 20px;
+  }
+  
+  .lamina-container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .lamina-info h2 {
+    font-size: 28px;
+    color: #2b6cb0;
+    margin-top: 40px;
+  }
+  
+  .lamina-info p,
+  .lamina-info li {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+  
+  .lamina-info ul {
+    list-style-type: disc;
+    padding-left: 20px;
+  }

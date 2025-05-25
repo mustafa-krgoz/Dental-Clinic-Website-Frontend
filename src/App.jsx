@@ -20,6 +20,8 @@ import DentalTomographyPage from './pages/treatments/DentalTomographyPage';
 import ZirconiumCrownPage from './pages/treatments/ZirconiumCrownPage';
 import AestheticDentistryPage from './pages/treatments/AestheticDentistryPage';
 import TartarCleaningPage from './pages/treatments/TartarCleaningPage';
+import GumTreatmentPage from './pages/treatments/GumTreatmentPage';
+import LaminaVeneerPage from './pages/treatments/LaminaVeneerPage';
 
 function App() {
   return (
@@ -37,6 +39,8 @@ function App() {
         <Route path="/zirkonyum" element={<ZirconiumCrownPage />} />
         <Route path="/estetik" element={<AestheticDentistryPage />} />
         <Route path="/temizlik" element={<TartarCleaningPage />} />
+        <Route path="/dis-eti" element={<GumTreatmentPage />} />
+        <Route path="/lamina" element={<LaminaVeneerPage />} />
         <Route path="/ai" element={<CariesDetectionPage />} />
         <Route path="/doktorlar" element={<DoctorsPage />} />
         <Route path="/blog" element={<BlogPage />} />
