@@ -1,0 +1,67 @@
+.tartar-page {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #1a202c;
+    background-color: #f9f9f9;
+  }
+  
+  .tartar-hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, #dceeff 0%, #c2e0ff 100%);
+    padding: 60px 20px;
+    border-radius: 0 0 30px 30px;
+    flex-wrap: wrap;
+  }
+  
+  .tartar-hero-text {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .tartar-hero-text h1 {
+    font-size: 48px;
+    color: #2b6cb0;
+  }
+  
+  .tartar-hero-text p {
+    font-size: 20px;
+    margin-top: 10px;
+  }
+  
+  .tartar-hero-image {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .tartar-hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+  }
+  
+  .tartar-info {
+    padding: 60px 20px;
+  }
+  
+  .tartar-container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .tartar-info h2 {
+    font-size: 28px;
+    color: #2b6cb0;
+    margin-top: 40px;
+  }
+  
+  .tartar-info p,
+  .tartar-info li {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+  
+  .tartar-info ul {
+    list-style-type: disc;
+    padding-left: 20px;
+  }

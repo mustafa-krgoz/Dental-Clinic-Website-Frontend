@@ -17,6 +17,9 @@ import SedationPage from './pages/treatments/SedationPage';
 import OrthodonticsPage from './pages/treatments/OrthodonticsPage';
 import FillingPage from './pages/treatments/FillingPage';
 import DentalTomographyPage from './pages/treatments/DentalTomographyPage';
+import ZirconiumCrownPage from './pages/treatments/ZirconiumCrownPage';
+import AestheticDentistryPage from './pages/treatments/AestheticDentistryPage';
+import TartarCleaningPage from './pages/treatments/TartarCleaningPage';
 
 function App() {
   return (
@@ -31,6 +34,9 @@ function App() {
         <Route path="/ortodonti" element={<OrthodonticsPage />} />
         <Route path="/dolgu" element={<FillingPage />} />
         <Route path="/tomografi" element={<DentalTomographyPage />} />
+        <Route path="/zirkonyum" element={<ZirconiumCrownPage />} />
+        <Route path="/estetik" element={<AestheticDentistryPage />} />
+        <Route path="/temizlik" element={<TartarCleaningPage />} />
         <Route path="/ai" element={<CariesDetectionPage />} />
         <Route path="/doktorlar" element={<DoctorsPage />} />
         <Route path="/blog" element={<BlogPage />} />
