@@ -229,6 +229,15 @@ const CariesDetectionPage = () => {
               <h4>Öneriler</h4>
               <p>Sonuçlara göre kişiye özel bakım önerileri sunuyoruz</p>
             </div>
+                <div className="ai-info-section">
+                <h3>Nasıl Daha İyi Fotoğraf Çekebilirsiniz?</h3>
+                <ul>
+                <li>Dişlerinizi göstermek için ağzınızı genişçe açın</li>
+                <li>Yeterli ışık altında çekim yapın</li>
+                <li>Odaklanmayı kolaylaştırmak için arka planı sade tutun</li>
+                <li>Mümkünse flaş kullanmayın</li>
+                </ul>
+            </div>
           </div>
         </div>
       </div>
