@@ -9,7 +9,7 @@ import BlogPage from './pages/BlogPage';
 import FaqSectionPage from './pages/FaqSectionPage';
 import ContactPage from './pages/ContactPage';
 import AppointmentPage from './pages/AppointmentPage';
-import CariesDetectionPage from './pages/CariesDetectionPage';
+import DiseaseDetectionPage from './pages/DiseaseDetectionPage';
 import ImplantPage from './pages/treatments/ImplantPage';
 import PedodontiPage from './pages/treatments/PedodontiPage';
 import TeethWhiteningPage from './pages/treatments/TeethWhiteningPage';
@@ -22,6 +22,7 @@ import AestheticDentistryPage from './pages/treatments/AestheticDentistryPage';
 import TartarCleaningPage from './pages/treatments/TartarCleaningPage';
 import GumTreatmentPage from './pages/treatments/GumTreatmentPage';
 import LaminaVeneerPage from './pages/treatments/LaminaVeneerPage';
+
 
 function App() {
   return (
@@ -41,7 +42,7 @@ function App() {
         <Route path="/temizlik" element={<TartarCleaningPage />} />
         <Route path="/dis-eti" element={<GumTreatmentPage />} />
         <Route path="/lamina" element={<LaminaVeneerPage />} />
-        <Route path="/ai" element={<CariesDetectionPage />} />
+        <Route path="/ai" element={<DiseaseDetectionPage/>} />
         <Route path="/doktorlar" element={<DoctorsPage />} />
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/sss" element={<FaqSectionPage />} />
