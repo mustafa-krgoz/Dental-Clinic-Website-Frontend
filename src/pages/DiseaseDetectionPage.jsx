@@ -1,4 +1,3 @@
-// DiseaseDetectionPage.jsx
 import React, { useState, useRef } from 'react';
 import { FiUpload, FiLoader, FiCheckCircle, FiAlertTriangle, FiX } from 'react-icons/fi';
 import { FaTooth, FaClinicMedical, FaSmile } from 'react-icons/fa';
@@ -81,26 +80,34 @@ const DiseaseDetectionPage = () => {
     if (!image) return;
     setLoading(true);
     setError(null);
+    setResults([]);
+
     const formData = new FormData();
-    formData.append('image', image);
+    formData.append('file', image);
+
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      const response = await fetch('http://localhost:5001/predict', {
+        method: 'POST',
+        body: formData
+      });
 
-      const mockDiseases = [
-        'Diş Çürüğü',
-        'Diş Eksikliği',
-        'Diş Eti İltihabı',
-        'Diş Taşı'
-      ];
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'API bağlantısı başarısız');
+      }
 
-      const mockResults = mockDiseases.map(disease => ({
-        name: disease,
-        confidence: Math.random() * 0.5 + 0.3
+      const data = await response.json();
+      console.log("API Response:", data);
+
+      const allResults = Object.entries(data.all_probabilities).map(([name, confidence]) => ({
+        name,
+        confidence: parseFloat(confidence)
       })).sort((a, b) => b.confidence - a.confidence);
 
-      setResults(mockResults);
-    } catch (error) {
-      setError('Analiz sırasında bir hata oluştu.');
+      setResults(allResults);
+    } catch (err) {
+      console.error("Analiz hatası:", err);
+      setError(err.message || 'Analiz sırasında bir hata oluştu');
     } finally {
       setLoading(false);
     }
@@ -114,10 +121,11 @@ const DiseaseDetectionPage = () => {
     setError(null);
   };
 
-  const topDisease = results.length > 0 ? results.reduce((max, d) => d.confidence > max.confidence ? d : max) : null;
+  const topDisease = results.length > 0 ? results[0] : null;
   const handleRedirect = () => {
-    const dept = recommendationMap[topDisease?.name]?.department || 'Genel Diş Muayenesi';
-    navigate(`/randevu?tedavi=${encodeURIComponent(topDisease?.name || '')}&bolum=${encodeURIComponent(dept)}`);
+    if (!topDisease) return;
+    const dept = recommendationMap[topDisease.name]?.department || 'Genel Diş Muayenesi';
+    navigate(`/randevu?tedavi=${encodeURIComponent(topDisease.name)}&bolum=${encodeURIComponent(dept)}`);
   };
 
   return (
@@ -134,7 +142,6 @@ const DiseaseDetectionPage = () => {
               Diş fotoğrafınızı yükleyin, yapay zeka 4 hastalığı analiz etsin. <br />
               <strong>Not:</strong> Yalnızca <strong>160x160</strong> boyutunda, <strong>JPG, JPEG veya PNG</strong> formatında dosyalar desteklenmektedir.
             </p>
-
             <div className="disease-features">
               <div className="feature-card">
                 <FaTooth className="feature-icon" />
@@ -184,7 +191,7 @@ const DiseaseDetectionPage = () => {
             </div>
           )}
 
-          {preview && !results.length && (
+          {preview && !results.length && !error && (
             <div className="action-buttons">
               <button onClick={handleDetect} disabled={loading} className={`disease-detect-btn ${loading ? 'loading' : ''}`}>
                 {loading ? (<><FiLoader className="spinner" /><span>Analiz Yapılıyor...</span></>) : (<span>Analiz Yap</span>)}
@@ -195,20 +202,27 @@ const DiseaseDetectionPage = () => {
           {results.length > 0 && (
             <div className="disease-result-container">
               <h2 className="results-title">Analiz Sonuçları</h2>
-              <p className="results-subtitle">Tespit edilen hastalıklar ve oranları:</p>
+              <p className="results-subtitle">Tespit edilen hastalıklar ve güven oranları:</p>
+              
               <div className="disease-result-list">
                 {results.map((res, index) => (
                   <div key={index} className="disease-result-item">
                     <span className="disease-disease-name">{res.name}</span>
                     <div className="disease-meter-container">
                       <div className="disease-meter-bar">
-                        <div className="disease-meter-fill" style={{ width: `${res.confidence * 100}%` }}></div>
+                        <div 
+                          className="disease-meter-fill" 
+                          style={{ width: `${(res.confidence * 100).toFixed(1)}%` }}
+                        ></div>
                       </div>
-                      <span className="disease-confidence">%{(res.confidence * 100).toFixed(1)}</span>
+                      <span className="disease-confidence">
+                        %{(res.confidence * 100).toFixed(1)}
+                      </span>
                     </div>
                   </div>
                 ))}
               </div>
+
               {topDisease && (
                 <div className="disease-treatment">
                   <div className="treatment-header">
@@ -216,14 +230,22 @@ const DiseaseDetectionPage = () => {
                     <h3>En Yüksek Olasılıkla: <strong>{topDisease.name}</strong></h3>
                   </div>
                   <div className="treatment-content">
-                    <p>{recommendationMap[topDisease.name].suggestion}</p>
-                    <p><strong>Önerilen Bölüm:</strong> {recommendationMap[topDisease.name].department}</p>
-                    <button onClick={handleRedirect} className="treatment-button">Randevu Al</button>
+                    <p>{recommendationMap[topDisease.name]?.suggestion || 'Uzman diş hekimi muayenesi önerilir.'}</p>
+                    <p><strong>Önerilen Bölüm:</strong> {recommendationMap[topDisease.name]?.department || 'Genel Diş Muayenesi'}</p>
+                    <button 
+                      onClick={handleRedirect} 
+                      className="treatment-button"
+                    >
+                      Randevu Al
+                    </button>
                   </div>
                 </div>
               )}
+
               <div className="reset-container">
-                <button onClick={resetForm} className="disease-reset-btn">Yeni Analiz Yap</button>
+                <button onClick={resetForm} className="disease-reset-btn">
+                  Yeni Analiz Yap
+                </button>
               </div>
             </div>
           )}
