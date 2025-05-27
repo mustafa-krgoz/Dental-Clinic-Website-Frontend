@@ -159,6 +159,14 @@
   align-items: center;
 }
 
+/* SVG ikonlar için sarı renk uygula */
+.treatment-icon svg {
+  width: 30px;
+  height: 30px;
+  color: #FDC100; /* Sarı renk */
+}
+
+/* Eğer bazı yerlerde hâlâ img kullanıyorsan eski stil dursun */
 .treatment-icon img {
   width: 50px;
   height: 50px;

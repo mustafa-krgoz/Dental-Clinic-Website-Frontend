@@ -3,38 +3,33 @@ import Navbar from '../components/layouts/Navbar';
 import Footer from '../components/layouts/Footer';
 import '../styles/appointment/AppointmentPage.css';
 import { FiArrowRight, FiArrowLeft, FiCheck, FiCalendar, FiClock } from 'react-icons/fi';
+import { 
+  FaUserMd, FaTooth, FaSmile, FaChild, FaXRay, FaTeeth, FaTeethOpen, FaStethoscope
+} from 'react-icons/fa';
+import { GiToothbrush } from 'react-icons/gi';
+
+const iconMap = {
+  "Muayene": <FaStethoscope size={36} />,
+  "Ağız ve Çene Cerrahisi": <FaXRay size={36} />,
+  "Diş Eti (Periodontoloji)": <GiToothbrush size={36} />,
+  "Pedodonti (Çocuk Diş Hekimliği)": <FaChild size={36} />,
+  "Ortodonti": <FaTeeth size={36} />,
+  "Estetik Diş Hekimliği": <FaSmile size={36} />,
+  "Restoratif Diş Tedavisi": <FaTooth size={36} />,
+  "Protetik Diş Tedavisi (Protez)": <FaTeethOpen size={36} />,
+  "Endodonti (Kanal Tedavisi)": <FaUserMd size={36} />
+};
 
 const treatments = [
-  {
-    name: "Muayene",
-    icon: "/icons/stethoscope.svg",
-    description: "Genel diş muayenesi ve kontrol"
-  },
-  {
-    name: "Ağız ve Çene Cerrahisi",
-    icon: "/icons/surgery.svg",
-    description: "20'lik diş çekimi ve cerrahi işlemler"
-  },
-  {
-    name: "Diş Eti (Periodontoloji)",
-    icon: "/icons/tooth.svg",
-    description: "Diş eti hastalıkları tedavisi"
-  },
-  {
-    name: "Pedodonti (Çocuk Diş Hekimi)",
-    icon: "/icons/baby.svg",
-    description: "Çocuklara özel diş tedavileri"
-  },
-  {
-    name: "Ortodonti",
-    icon: "/icons/braces.svg",
-    description: "Diş teli ve çene düzensizlikleri"
-  },
-  {
-    name: "Estetik Diş Hekimliği",
-    icon: "/icons/esthetic.svg",
-    description: "Gülüş tasarımı ve beyazlatma"
-  }
+  { name: "Muayene", description: "Genel diş muayenesi ve kontrol" },
+  { name: "Ağız ve Çene Cerrahisi", description: "20'lik diş çekimi ve cerrahi işlemler" },
+  { name: "Diş Eti (Periodontoloji)", description: "Diş eti hastalıkları tedavisi" },
+  { name: "Pedodonti (Çocuk Diş Hekimliği)", description: "Çocuklara özel diş tedavileri" },
+  { name: "Ortodonti", description: "Diş teli ve çene düzensizlikleri" },
+  { name: "Estetik Diş Hekimliği", description: "Gülüş tasarımı ve beyazlatma" },
+  { name: "Restoratif Diş Tedavisi", description: "Çürük tedavisi ve diş dolguları" },
+  { name: "Protetik Diş Tedavisi (Protez)", description: "Diş protezleri ve sabit/çıkarılabilir uygulamalar" },
+  { name: "Endodonti (Kanal Tedavisi)", description: "Kanal tedavisi ve diş kökü işlemleri" }
 ];
 
 const doctors = [
@@ -44,20 +39,16 @@ const doctors = [
     specialty: "Ortodonti",
     image: "https://randomuser.me/api/portraits/men/32.jpg",
     schedule: {
-      "2025-05-16": ["10:00", "11:30", "14:00", "15:30"],
-      "2025-05-19": ["09:00", "10:30", "13:00", "14:30"],
-      "2025-05-20": ["11:00", "13:30", "15:00", "16:30"]
+      "2025-05-16": ["10:00", "11:30", "14:00", "15:30"]
     }
   },
   {
     id: 2,
     name: "Dr. Ayşe Demir",
-    specialty: "Pedodonti",
+    specialty: "Pedodonti (Çocuk Diş Hekimliği)",
     image: "https://randomuser.me/api/portraits/women/44.jpg",
     schedule: {
-      "2025-05-17": ["09:30", "11:00", "14:30", "16:00"],
-      "2025-05-19": ["10:00", "12:00", "15:00"],
-      "2025-05-21": ["09:00", "11:30", "14:00"]
+      "2025-05-17": ["09:30", "11:00", "14:30", "16:00"]
     }
   },
   {
@@ -66,9 +57,52 @@ const doctors = [
     specialty: "Ağız ve Çene Cerrahisi",
     image: "https://randomuser.me/api/portraits/men/75.jpg",
     schedule: {
-      "2025-05-16": ["09:00", "11:00", "14:00"],
-      "2025-05-18": ["10:30", "13:00", "15:30"],
-      "2025-05-20": ["09:30", "11:30", "14:30"]
+      "2025-05-16": ["09:00", "11:00", "14:00"]
+    }
+  },
+  {
+    id: 4,
+    name: "Dr. Elif Koç",
+    specialty: "Diş Eti (Periodontoloji)",
+    image: "https://randomuser.me/api/portraits/women/65.jpg",
+    schedule: {
+      "2025-05-18": ["09:00", "10:30", "13:00"]
+    }
+  },
+  {
+    id: 5,
+    name: "Dr. Burak Aslan",
+    specialty: "Restoratif Diş Tedavisi",
+    image: "https://randomuser.me/api/portraits/men/23.jpg",
+    schedule: {
+      "2025-05-19": ["10:00", "11:30", "14:00"]
+    }
+  },
+  {
+    id: 6,
+    name: "Dr. Zeynep Öztürk",
+    specialty: "Protetik Diş Tedavisi (Protez)",
+    image: "https://randomuser.me/api/portraits/women/28.jpg",
+    schedule: {
+      "2025-05-20": ["09:00", "12:00", "15:00"]
+    }
+  },
+  {
+    id: 7,
+    name: "Dr. Ali Şahin",
+    specialty: "Endodonti (Kanal Tedavisi)",
+    image: "https://randomuser.me/api/portraits/men/51.jpg",
+    schedule: {
+      "2025-05-21": ["08:30", "10:00", "13:30"]
+    }
+  },
+  {
+    id: 8,
+    name: "Dr. Merve Yıldız",
+    specialty: "Estetik Diş Hekimliği",
+    image: "https://randomuser.me/api/portraits/women/83.jpg",
+    schedule: {
+      "2025-05-22": ["09:00", "11:00", "14:00"]
     }
   }
 ];
@@ -233,7 +267,7 @@ const AppointmentPage = () => {
                       onClick={() => handleSelectTreatment(treatment)}
                     >
                       <div className="treatment-icon">
-                        <img src={treatment.icon} alt={treatment.name} />
+                          {iconMap[treatment.name]}
                       </div>
                       <h3>{treatment.name}</h3>
                       <p>{treatment.description}</p>
