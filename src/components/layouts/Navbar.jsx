@@ -57,7 +57,7 @@ function Navbar() {
           )}
         </div>
 
-        <a href="/ai" className="nav-link"><AiOutlineRobot /> AI Çürük Tespiti</a>
+        <a href="/ai" className="nav-link"><AiOutlineRobot /> AI Diş Hastalığı Analizi</a>
         <a href="/doktorlar" className="nav-link"><FaUserMd /> Doktorlarımız</a>
         <a href="/blog" className="nav-link"><BsChatDots /> Blog</a>
         <a href="/sss" className="nav-link"><FaRegQuestionCircle /> SSS</a>
