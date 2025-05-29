@@ -140,7 +140,7 @@ const DiseaseDetectionPage = () => {
             <h1>AI Destekli Diş Hastalıkları Tespiti</h1>
             <p className="disease-subtitle">
               Diş fotoğrafınızı yükleyin, yapay zeka 4 hastalığı analiz etsin. <br />
-              <strong>Not:</strong> Yalnızca <strong>160x160</strong> boyutunda, <strong>JPG, JPEG veya PNG</strong> formatında dosyalar desteklenmektedir.
+              <strong>Not:</strong><strong> JPG, JPEG veya PNG</strong> formatında dosyalar desteklenmektedir.
             </p>
             <div className="disease-features">
               <div className="feature-card">
@@ -174,7 +174,7 @@ const DiseaseDetectionPage = () => {
                   <FiUpload size={48} />
                 </div>
                 <h3>Diş Fotoğrafınızı Yükleyin</h3>
-                <p>160x160 boyutunda JPG, JPEG veya PNG formatında bir görsel yükleyin</p>
+                <p>JPG, JPEG veya PNG formatında bir görsel yükleyin</p>
               </div>
             ) : (
               <div className="disease-image-preview">
