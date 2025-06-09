@@ -7,6 +7,7 @@ import {
   FaUserMd, FaTooth, FaSmile, FaChild, FaXRay, FaTeeth, FaTeethOpen, FaStethoscope
 } from 'react-icons/fa';
 import { GiToothbrush } from 'react-icons/gi';
+import { createAppointment } from '../api/appointmentApi';
 
 const iconMap = {
   "Muayene": <FaStethoscope size={36} />,
@@ -114,7 +115,8 @@ const AppointmentPage = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
   const [formData, setFormData] = useState({
-    name: '',
+    firstName: '',
+    lastName: '',
     phone: '',
     email: '',
     note: ''
@@ -152,17 +154,30 @@ const AppointmentPage = () => {
     if (step < 3) setStep(step + 1);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+  
+    const appointmentDate = `${selectedDate}T${selectedTime}`;
+  
     const appointmentData = {
-      treatment: selectedTreatment.name,
-      doctor: selectedDoctor.name,
-      date: selectedDate,
-      time: selectedTime,
-      ...formData
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      phoneNumber: formData.phone,
+      email: formData.email,
+      note: formData.note,
+      doctorName: selectedDoctor.name,
+      department: selectedTreatment.name,
+      appointmentDate,
+      status: "BEKLEMEDE"
     };
-    console.log('Randevu bilgileri:', appointmentData);
-    alert('Randevunuz başarıyla oluşturuldu!');
+  
+    try {
+      await createAppointment(appointmentData);
+      alert("🎉 Randevunuz başarıyla oluşturuldu!");
+    } catch (error) {
+      console.error("Randevu API hatası:", error);
+      alert("🚨 Randevu oluşturulurken bir hata oluştu.");
+    }
   };
 
   const Calendar = ({ doctor }) => {
@@ -310,7 +325,7 @@ const AppointmentPage = () => {
             )}
 
             {step === 3 && (
-              <form className="info-step" onSubmit={handleSubmit}>
+              <form className="info-step" onSubmit={handleSubmit} id="appointment-form">
                 <h2>Randevu Bilgileriniz</h2>
                 <p>Lütfen iletişim bilgilerinizi giriniz</p>
                 
@@ -341,12 +356,24 @@ const AppointmentPage = () => {
                 </div>
                 
                 <div className="form-group">
-                  <label htmlFor="name">Ad Soyad</label>
+                  <label htmlFor="firstName">Ad</label>
                   <input 
                     type="text" 
-                    id="name" 
-                    name="name" 
-                    value={formData.name}
+                    id="firstName" 
+                    name="firstName" 
+                    value={formData.firstName}
+                    onChange={handleInputChange}
+                    required 
+                  />
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="lastName">Soyad</label>
+                  <input 
+                    type="text" 
+                    id="lastName" 
+                    name="lastName" 
+                    value={formData.lastName}
                     onChange={handleInputChange}
                     required 
                   />
@@ -410,12 +437,8 @@ const AppointmentPage = () => {
                 İleri <FiArrowRight />
               </button>
             ) : (
-              <button 
-                className="submit-btn"
-                type="submit"
-                form="appointment-form"
-              >
-                Randevu Oluştur
+              <button className="submit-btn" type="submit" form="appointment-form">
+                  Randevu Oluştur
               </button>
             )}
           </div>
